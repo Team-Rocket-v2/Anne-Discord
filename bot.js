@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const config = require("./config.json");
 let mode = 1;
 
+//This is a comment
 //spamtime func
 function spamtime(spam_house){
   if(mode == 1)
