@@ -32,7 +32,7 @@ function logEnter(message, logdata)
 let bot = new Discord.Client();
 bot.on("ready", function() {
   console.log('Logged in as '+bot.user.username);
-  bot.user.setActivity('with Emotions', { type: 'PLAYING' });
+  bot.user.setActivity('God', { type: 'PLAYING' });
   spam_house = bot.channels.get(config.SPAM_CHANNEL);
 
   //spam
@@ -55,7 +55,7 @@ if(message.content.toLowerCase() == "!ping")
 
 else if(message.channel.id == config.SAY_CHANNEL && message.content.toLowerCase() == "!stop")
 {
-  bot.user.setActivity('in Dreams', { type: 'PLAYING' });
+  bot.user.setActivity('with Myself', { type: 'PLAYING' });
   message.channel.send("Ugh. Humans!");
   mode = 0;
 }
