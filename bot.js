@@ -79,8 +79,8 @@ else if( mode == 1){
  if(message.author.id == config.POKECORD_ID)
 {
 
-  //level up
-  if(message.content.match(/\b100!```/))
+  //level up (Need to test yet)
+  if(message.content.match(/\b100!```/) && message.content.indexOf(bot.user.username) != -1)
   {
     bot.channels.get(config.SAY_CHANNEL).send("p!info")
     .then(
