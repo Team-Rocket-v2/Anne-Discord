@@ -237,6 +237,28 @@ else if( mode == 1){
         purl = "Zapdos";
       if (purl == "DzioNyoHsd")
         purl = "Zekrom";
+      if (purl == "ZFhVGXfqLm")
+        purl = "Nihilego";
+      if (purl == "ANvAfwmkGRaB")
+        purl = "Buzzwole";
+      if (purl == "DVdRNzub")
+        purl = "Pheromosa";
+      if (purl == "NUZGOUliZbVp")
+        purl = "Xurkitree";
+      if (purl == "WVViynlNwhq")
+        purl = "Celesteela";
+      if (purl == "BerOymYadVZb")
+        purl = "Kartana";
+      if (purl == "RNgybNqrYHt")
+        purl = "Guzzlord";
+      if (purl == "CxNLfbLtZvMP")
+        purl = "Poipole";
+      if (purl == "BRtRnAKMm")
+        purl = "Naganadel";
+      if (purl == "XPJVtJJDCWO")
+        purl = "Stakataka";
+      if (purl == "WnZrvNFUht")
+        purl = "Blacephalon";
 
       if(config.TO_CATCH.indexOf(purl) == -1)
         return;
