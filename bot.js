@@ -68,7 +68,7 @@ else if(message.channel.id == config.SAY_CHANNEL && message.content.toLowerCase(
   }
   else
   { 
-    bot.user.setActivity('with Emotions', { type: 'PLAYING' }); 
+    bot.user.setActivity('God', { type: 'PLAYING' }); 
     message.channel.send("Ready to comply!");
     mode = 1;
   }
