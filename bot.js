@@ -105,10 +105,6 @@ else if( mode == 1){
         purl = "Sableye";
       if (purl == "FTddeIjIvRTi")
         purl = "Gastly";
-      if (purl == "LuMnrrdafnND")
-        purl = "Vulpix";
-      if (purl == "FmgyRqsjVuQ")
-        purl = "Ninetales";
       if (purl == "BoRNRwCIno")
         purl = "Espeon";
       if (purl == "UlaeTRHTQKPZ")
