@@ -255,6 +255,10 @@ else if( mode == 1){
         purl = "Stakataka";
       if (purl == "WnZrvNFUht")
         purl = "Blacephalon";
+      if (purl == "LuMnrrdafnND")
+        purl = "Vulpix";
+      if (purl == "GnudRuicTKYe")
+        purl = "Houndour";
 
       if(config.TO_CATCH.indexOf(purl) == -1)
         return;
