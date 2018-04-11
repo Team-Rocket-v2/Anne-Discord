@@ -67,8 +67,8 @@ else if(message.channel.id == config.SAY_CHANNEL && message.content.toLowerCase(
     message.channel.send("I'm right here lol :joy:");
   }
   else
-  { 
-    bot.user.setActivity('God', { type: 'PLAYING' }); 
+  {
+    bot.user.setActivity('God', { type: 'PLAYING' });
     message.channel.send("Ready to comply!");
     mode = 1;
   }
@@ -257,8 +257,10 @@ else if( mode == 1){
         purl = "Blacephalon";
       if (purl == "LuMnrrdafnND")
         purl = "Vulpix";
-      if (purl == "GnudRuicTKYe")
-        purl = "Houndour";
+        if (purl == "GnudRuicTKYe")
+          purl = "Houndour";
+          if (purl == "LvSbDCl")
+            purl = "Pichu";
 
       if(config.TO_CATCH.indexOf(purl) == -1)
         return;
