@@ -2,9 +2,9 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
 const pokedex = require("./Pokedex.json");
+const my_ver = require("./package.json");
 let mode = 1;
 
-//This is a comment
 //spamtime func
 function spamtime(spam_house){
   if(mode == 1)
@@ -80,7 +80,7 @@ else if( mode == 1){
  if(message.author.id == config.POKECORD_ID)
 {
 
-  //level up (Need to test yet)
+  //level up
   if(message.content.match(/\b100!```/) && message.content.indexOf(bot.user.username) != -1)
   {
     bot.channels.get(config.SAY_CHANNEL).send("p!info")
@@ -106,7 +106,7 @@ else if( mode == 1){
         .setFooter(message.createdAt.toString().substring(0,message.createdAt.toString().indexOf('+')))
         .addField("Server", message.guild.name)
         .addField("Channel", message.channel.name)
-        .addField("Pokemon", purl);
+        .addField("Pokemon", pokedex.table[index].name);
         logEnter(message, newpoke);
     }
     }
@@ -138,6 +138,12 @@ else if(message.channel.id == config.SAY_CHANNEL && message.content.toLowerCase(
   {
     message.reply("Pardon me senpai! Couldn't deliver the scroll!! :frowning: ");
   }
+}
+
+//version
+else if(message.channel.id == config.SAY_CHANNEL && message.content.toLowerCase().startsWith("!version"))
+{
+  message.channel.send(my_ver.version);
 }
 
 else if(message.channel.id == config.SAY_CHANNEL && message.content.toLowerCase().startsWith("!wsb"))

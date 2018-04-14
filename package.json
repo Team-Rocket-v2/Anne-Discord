@@ -1,6 +1,6 @@
 {
-  "name": "SPAM-R",
-  "version": "1.0.0",
+  "name": "spam_r",
+  "version": "2.0.0",
   "description": "Gotta Catch 'em all!",
   "main": "bot.js",
   "scripts": {
