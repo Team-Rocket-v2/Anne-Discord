@@ -19,7 +19,7 @@ function spamtime(spam_house){
 function nextPokemon(message,bot)
 {
   bot.channels.get(config.SAY_CHANNEL).send('p!info').then(() => {
-    const filter = m => (message.author.id === m.author.id && m.embeds && m.embeds[0].title && m.embeds[0].title.startsWith("Level 100"));
+    const filter = m => (message.author.id === m.author.id);
 
     message.channel.awaitMessages(filter, { time: 10000, maxMatches: 1, errors: ['time'] })
         .then(messages => {
