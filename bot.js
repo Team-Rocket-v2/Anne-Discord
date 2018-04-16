@@ -41,6 +41,11 @@ bot.on("ready", function() {
 
 });
 
+//error listener
+bot.on("error", function(err) {
+  console.error(err);
+});
+
 //When a message is received
 bot.on("message", function(message) {
 
@@ -80,12 +85,12 @@ else if( mode == 1){
  if(message.author.id == config.POKECORD_ID)
 {
 
-  //level up
+  //level up (need to check)
   if(message.content.match(/\b100!```/) && message.content.indexOf(bot.user.username) != -1)
   {
     bot.channels.get(config.SAY_CHANNEL).send("p!info")
     .then(
-      bot.channels.get(config.SAY_CHANNEL).send("p!n"));
+      setTimeout(waitsend,3000,bot,config.SAY_CHANNEL,"p!n"));
     logEnter(message, message.content);
   }
 
