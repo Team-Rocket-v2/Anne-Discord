@@ -15,6 +15,22 @@ function spamtime(spam_house){
   }
 }
 
+//next pokemon
+function nextPokemon(message,bot)
+{
+  bot.channels.get(config.SAY_CHANNEL).send('p!info').then(() => {
+    const filter = m => (message.author.id === m.author.id && m.embeds && m.embeds[0].title && m.embeds[0].title.startsWith("Level 100"));
+
+    message.channel.awaitMessages(filter, { time: 10000, maxMatches: 1, errors: ['time'] })
+        .then(messages => {
+            bot.channels.get(config.SAY_CHANNEL).send("p!n");
+        })
+        .catch(() => {
+            nextPokemon(message,bot);
+        });
+});
+}
+
 //waitsend func
 function waitsend(client,chan,tp){
   client.channels.get(chan).send(tp);
@@ -88,9 +104,7 @@ else if( mode == 1){
   //level up (need to check)
   if(message.content.match(/\b100!```/) && message.content.indexOf(bot.user.username) != -1)
   {
-    bot.channels.get(config.SAY_CHANNEL).send("p!info")
-    .then(
-      setTimeout(waitsend,3000,bot,config.SAY_CHANNEL,"p!n"));
+    nextPokemon(message,bot);
     logEnter(message, message.content);
   }
 
