@@ -18,12 +18,23 @@ function spamtime(spam_house){
 //next pokemon
 function nextPokemon(message,bot)
 {
-  bot.channels.get(config.SAY_CHANNEL).send('p!info').then(() => {
-    const filter = m => (message.author.id === m.author.id);
+  bot.channels.get(config.SAY_CHANNEL).send("p!info").then(() => {
+    const filter = m => config.POKECORD_ID == m.author.id;
 
-    message.channel.awaitMessages(filter, { time: 10000, maxMatches: 1, errors: ['time'] })
+    bot.channels.get(config.SAY_CHANNEL).awaitMessages(filter, { time: 10000, maxMatches: 1, errors: ['time'] })
         .then(messages => {
-            bot.channels.get(config.SAY_CHANNEL).send("p!n");
+            messages.array().forEach(msg => {
+              if(msg.embeds.length == 0)
+                nextPokemon(message,bot);
+              else 
+              msg.embeds.forEach((embed) => {
+                if(embed.title && embed.title.startsWith("Level 100")){
+                  bot.channels.get(config.SAY_CHANNEL).send("p!n");
+                }
+                else
+                nextPokemon(message,bot);
+              })
+            });
         })
         .catch(() => {
             nextPokemon(message,bot);
