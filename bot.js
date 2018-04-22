@@ -74,7 +74,7 @@ bot.on("ready", function() {
   bot.user.setActivity('God', { type: 'PLAYING' });
 
   //spam
-  setInterval(spamtime,1000,bot);
+  setInterval(spamtime,1500,bot);
 
 });
 
