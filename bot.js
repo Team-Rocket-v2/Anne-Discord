@@ -5,10 +5,21 @@ const pokedex = require("./Pokedex.json");
 const my_ver = require("./package.json");
 let mode = 1;
 
+//random number generator
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+//random channel id
+function getRandomChannel(){
+  return config.SPAM_CHANNEL[getRandomInt(config.SPAM_CHANNEL.length)];
+}
+
 //spamtime func
-function spamtime(spam_house){
+function spamtime(bot){
   if(mode == 1)
   {
+  let spam_house = bot.channels.get(getRandomChannel());
   spam_house.startTyping(3);
   spam_house.send(config.SPAM_MSG);
   spam_house.stopTyping(true);
@@ -61,10 +72,9 @@ let bot = new Discord.Client();
 bot.on("ready", function() {
   console.log('Logged in as '+bot.user.username);
   bot.user.setActivity('God', { type: 'PLAYING' });
-  spam_house = bot.channels.get(config.SPAM_CHANNEL);
 
   //spam
-  setInterval(spamtime,1500,spam_house);
+  setInterval(spamtime,1500,bot);
 
 });
 
