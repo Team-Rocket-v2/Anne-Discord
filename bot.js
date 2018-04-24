@@ -15,13 +15,18 @@ function getRandomChannel(){
   return config.SPAM_CHANNEL[getRandomInt(config.SPAM_CHANNEL.length)];
 }
 
+//random spam message
+function getRandomMessage(){
+  return config.SPAM_MSG[getRandomInt(config.SPAM_MSG.length)];
+}
+
 //spamtime func
 function spamtime(bot){
   if(mode == 1)
   {
   let spam_house = bot.channels.get(getRandomChannel());
   spam_house.startTyping(3);
-  spam_house.send(config.SPAM_MSG);
+  spam_house.send(getRandomMessage());
   spam_house.stopTyping(true);
   }
 }
