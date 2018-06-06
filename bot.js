@@ -3,6 +3,8 @@ const Discord = require("discord.js");
 const config = require("./config.json");
 const pokedex = require("./Pokedex.json");
 const my_ver = require("./package.json");
+const Hashes = require("jshashes");
+const request = require("snekfetch");
 let mode = 1;
 
 //random number generator
@@ -140,12 +142,16 @@ else if( mode == 1){
   message.embeds.forEach((embed) => {
     if(embed.title){
     if(embed.title.startsWith("A wild")){
-      var index = pokedex.table.findIndex(obj => obj.url==embed.image.url);
-      if(index == -1)
-        return;
-      if(!pokedex.table[index].catch)
-        return;
-      message.channel.send("p!catch "+pokedex.table[index].name);
+      request.get(embed.image.url)
+      .then(r => {
+        purl = new Hashes.MD5().hex(r.body.toString());
+        var index = pokedex.table.findIndex(obj => obj.md5==purl);
+        if(index == -1)
+          return;
+        if(!pokedex.table[index].catch)
+          return;
+        purl=pokedex.table[index].name;
+        message.channel.send("p!catch "+purl);
       var newpoke = new Discord.RichEmbed()
         .setTitle("New Pokemon Spotted!")
         .setThumbnail(embed.image.url)
@@ -153,8 +159,9 @@ else if( mode == 1){
         .setFooter(message.createdAt.toString().substring(0,message.createdAt.toString().indexOf('+')))
         .addField("Server", message.guild.name)
         .addField("Channel", message.channel.name)
-        .addField("Pokemon", pokedex.table[index].name);
+        .addField("Pokemon", purl);
         logEnter(message, newpoke);
+      });
     }
     }
   });
