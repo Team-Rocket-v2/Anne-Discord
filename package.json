@@ -10,6 +10,7 @@
   "author": "Jen-dere",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "jshashes": "^1.0.7"
   }
 }
